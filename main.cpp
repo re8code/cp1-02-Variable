@@ -2,15 +2,13 @@
 #include <typeinfo>
 
 int main () {
-    char a = 0x7f;
-    printf("1) %d(%s), %d(%s)\n", a,typeid(a).name(), a+1,typeid(a+1).name());
-
+    char  a = 0x7f;
     short b = 0x7fff;
-    printf("2) %d(%s), %d(%s)\n", b,typeid(b).name(), b+1,typeid(b+1).name());
+    printf("1) a = %d, (char)(a+1) = %d(%s)\n", a, (char)(a+1), typeid((char)(a+1)).name());
+    printf("2) b = %d, (short)(b+1) = %d(%s)\n", b, (short)(b+1), typeid((short)(b+1)).name());
 
-    int c = 0x7fffffff;
-    printf("3) %d(%s), %d(%s)\n", c,typeid(c).name(), c+1,typeid(c+1).name());
-
-    long d = 0x7fffffffffffffff; // 자동 형변환
-    printf("4) %ld(%s), %ld(%s)", d,typeid(d).name(), d+1,typeid(d+1).name());
+    long c = 2000000000  + 2000000000; //  int + int = int
+    long d = 2000000000L + 2000000000; // long + int = long
+    printf("3) c = %ld, d = %ld\n", c, d);
+    printf("4) 2147483647(%s), 2147483647(%s)", typeid(2147483647).name(), typeid(2147483648).name());
 }
