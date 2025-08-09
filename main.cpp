@@ -1,14 +1,12 @@
 #include <stdio.h>
+#include <typeinfo>
 
 int main () {
-    int a;                       // 1) O
-    int b, c;                    // 2) O
-    b = c = 0;                   // 3) O
-    // long g = 0L, char h = 0;  // 4) X
-    // int i, j = 0, 0;          // 5) X
-    {
-        int k = 0;               // 6) variable scope
-        printf ("%d", a);        // 7) O
-    }
-    // printf ("%d", k);         // 8) X
+    printf("1) %s, %lu\n", typeid(1).name(),      sizeof(1));
+    printf("2) %s, %lu\n", typeid(2L).name(),     sizeof(2L));     // 소문자 'l' 가능
+    printf("3) %s, %lu\n", typeid(0.123).name(),  sizeof(0.123));
+    printf("4) %s, %lu\n", typeid(0.123F).name(), sizeof(0.123F)); // 소문자 'f' 가능
+    printf("5) %s, %lu\n", typeid('a').name(),    sizeof('a'));
+    printf("6) %s, %lu\n", typeid("a").name(),    sizeof("a"));
+    printf("7) %s, %lu\n", typeid(true).name(),   sizeof(true));
 }
