@@ -1,14 +1,11 @@
 #include <stdio.h>
-#include <typeinfo>
 
 int main () {
-    char  a = 0x7f;
-    short b = 0x7fff;
-    printf("1) a = %d, (char)(a+1) = %d(%s)\n", a, (char)(a+1), typeid((char)(a+1)).name());
-    printf("2) b = %d, (short)(b+1) = %d(%s)\n", b, (short)(b+1), typeid((short)(b+1)).name());
-
-    long c = 2000000000  + 2000000000; //  int + int = int
-    long d = 2000000000L + 2000000000; // long + int = long
-    printf("3) c = %ld, d = %ld\n", c, d);
-    printf("4) 2147483647(%s), 2147483647(%s)", typeid(2147483647).name(), typeid(2147483648).name());
+    printf("1) %1.19f\n", 1.2345678901234567890);
+    printf("2) %2.18f\n", 12.345678901234567890);
+    printf("3) %3.17f\n", 123.45678901234567890);
+    printf("4) %4.16f\n", 1234.5678901234567890);
+    printf("5) %5.15f\n", 12345.678901234567890);
+    printf("6) %6.14f\n", 123456.78901234567890);
+    printf("7) %7.13f\n", 1234567.8901234567890);
 }
